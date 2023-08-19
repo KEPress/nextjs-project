@@ -1,0 +1,54 @@
+$map: (action: #77002e, content: #2c292b, link: #ffe2ed);
+
+@function colorMap($key) {
+    @return map-get($map, $key);
+}
+
+.item {
+    margin: 1rem 0rem;
+
+    .image {
+        width: 100%; height: 20rem;
+        overflow: hidden;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        text-align: center;
+        padding: 1rem;
+
+        h3 {
+            font-size: 1.25rem;
+            color: colorMap(content);
+        }
+
+        address { 
+            font-size: larger; 
+            font-weight: bold;
+        }
+    }
+
+    .actions {
+        padding: 1.5rem;
+        text-align: center;
+
+        button {
+            font-weight: 200;
+            color: colorMap(action);
+            border: 1px solid colorMap(action);
+            background-color: transparent;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover, &:active { background-color: colorMap(link); }
+        }
+    }
+
+}

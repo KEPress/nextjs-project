@@ -1,0 +1,39 @@
+$map: (plain: white, header: #77002e, link: #fcb8d2);
+
+@function colorMap($key) {
+    @return map-get($map, $key);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%; height: 5rem;
+    justify-content: space-between;
+    padding: 0 10%;
+    background-color: colorMap(header);
+
+    ul {
+        display: flex;
+        list-style: none;
+        align-items: baseline;
+        margin: 0px; padding: 0px;
+
+        li { margin-left: 3rem; }
+
+        a {
+            color: colorMap(link);
+            font-size: 1.5rem;
+            text-decoration: none;
+
+            .active { color: colorMap(plain); }
+
+            &:hover, &:active { color: colorMap(plain); }
+        }
+    }
+
+    .logo {
+        color: colorMap(plain);
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}

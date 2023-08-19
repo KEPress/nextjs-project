@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import Form from "@/widgets/meets/form"
 
 const NewMeetup = () => {
@@ -19,7 +20,13 @@ const NewMeetup = () => {
         router.push(`/`)
     }
 
-    return (<Form addMeetUp={addHandle} />)
+    return (<>
+              <Head>
+                    <title>React | Add </title>
+                    <meta name={'description'} content={'Add new Meet Up'} />
+              </Head>
+             <Form addMeetUp={addHandle} />
+          </>)
 }
 
 export default NewMeetup

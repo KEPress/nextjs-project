@@ -52,7 +52,7 @@ export const getStaticPaths = async () => {
     client.close()
 
     return {
-        fallback: false,
+        fallback: 'blocking',
         paths: data.map((item) => ({ params: { meetId: item._id.toString()}}))
 
     }
